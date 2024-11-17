@@ -16,7 +16,7 @@ void SensorSetup() {
 void Ultrasonic(uint32_t Distance) {
   MeasureDistance = sonar.ping_cm();
   String DistanceText = String(MeasureDistance) + " Cm";
-  // DisplayLcd(5, "Distance", 5, DistanceText); // Display
+ 
   Serial.println(DistanceText);
 
   if (MeasureDistance < Distance && MeasureDistance > 0) {
