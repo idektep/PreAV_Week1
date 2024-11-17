@@ -15,7 +15,7 @@ void setup() {
    Forward(200);
    delay(900);
    RotateLeft(200);
-   delay(900);
+   delay(450);
 
 
 
