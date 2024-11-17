@@ -12,17 +12,16 @@ void SensorSetup() {
   pinMode(ULTRASONIC_TRIG_PIN, OUTPUT);
 }
 /*-----------------------------------------------*/
-void Ultrasonic() {
+
+void Ultrasonic(uint32_t Distance) {
   MeasureDistance = sonar.ping_cm();
   String DistanceText = String(MeasureDistance) + " Cm";
   // DisplayLcd(5, "Distance", 5, DistanceText); // Display
   Serial.println(DistanceText);
-}
-/*------------------------------------------*/
-void ForwardToWall(uint32_t Speed, uint32_t Distance) {
-  Ultrasonic();
-  if (MeasureDistance < Distance) {
+
+  if (MeasureDistance < Distance && MeasureDistance > 0) {
     Stop();
+    delay(500);
   } 
   else
     Forward(200);
